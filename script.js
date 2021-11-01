@@ -1,6 +1,6 @@
 'use strict';
 
-function calc(num1, operation, num2) {
+/* function calc(num1, operation, num2) {
 	num1 = +prompt('Введите первое значение');
 	operation = prompt('Выберите действие: сложение (+), вычитание (-), умножение(*), деление(/), возведение в степень(**)');
 	num2 = +prompt('Введите второе значение');
@@ -22,5 +22,31 @@ function calc(num1, operation, num2) {
 
 const start = document.getElementById('start');
 
-start.addEventListener('click', calc);
+start.addEventListener('click', calc); */
 
+
+
+
+function calc(num1, operation, num2) {
+	const isNotValid = (typeof num1 !== 'number') || (typeof num2 !== 'number') || operation === '' || operation === 'string';
+	const unknownOperation = operation !== ('+' || '-' || '*' || '/' || '**' || '%');
+	if (isNotValid) {
+		return 'error';
+	} else if (unknownOperation) {
+		return 'unknown operation';
+	} else if (operation === '+') {
+		return +num1 + +num2;
+	} else if (operation === '-') {
+		return num1 - num2;
+	} else if (operation === '*') {
+		return num1 * num2;
+	} else if (operation === '/') {
+		return num1 / num2;
+	} else if (operation === '**') {
+		return num1 ** num2;
+	} else if (operation === '%') {
+		return num1 % num2;
+	}
+};
+
+console.log(calc(5, '+', 4));
