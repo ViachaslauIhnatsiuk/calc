@@ -28,12 +28,9 @@ start.addEventListener('click', calc); */
 
 
 function calc(num1, operation, num2) {
-	const isNotValid = (typeof num1 !== 'number') || (typeof num2 !== 'number') || operation === '' || operation === 'string';
-	const unknownOperation = operation !== ('+' || '-' || '*' || '/' || '**' || '%');
+	const isNotValid = (typeof num1 !== 'number') || (typeof num2 !== 'number') || operation === '';
 	if (isNotValid) {
 		return 'error';
-	} else if (unknownOperation) {
-		return 'unknown operation';
 	} else if (operation === '+') {
 		return +num1 + +num2;
 	} else if (operation === '-') {
@@ -46,7 +43,9 @@ function calc(num1, operation, num2) {
 		return num1 ** num2;
 	} else if (operation === '%') {
 		return num1 % num2;
+	} else {
+		return 'unknown operation';
 	}
 };
 
-console.log(calc(5, '+', 4));
+console.log(calc(5, '-', 4));
