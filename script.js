@@ -93,7 +93,7 @@ function calc(num1, operation, num2) {
 	}
 	if (isNotValid) {
 		return 'error';
-	} else if (operation !== undefined) {
+	} else if (operation in operations) {
 		return operations[operation];
 	} else {
 		return 'unknown operation';
